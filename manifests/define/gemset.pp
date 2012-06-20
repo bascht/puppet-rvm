@@ -2,11 +2,13 @@
 # https://github.com/Frodotus/puppet-rvm/commit/17d854f20f0d49185938f84c4108823e9212c02a
 define rvm::define::gemset(
   $ensure = 'present',
+  $user = 'root',
   $ruby_version
 ) {
   ## Set sensible defaults for Exec resource
   Exec {
     path    => '/usr/local/rvm/bin:/bin:/sbin:/usr/bin:/usr/sbin',
+    user => $user
   }
   $rvm_source = "source /usr/local/rvm/scripts/rvm"
   if $ensure == 'present' {

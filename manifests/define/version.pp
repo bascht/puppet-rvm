@@ -1,5 +1,6 @@
 define rvm::define::version (
   $ensure = 'present',
+  $user = 'root',
   $system = 'false'
 ) {
   include rvm
@@ -8,6 +9,7 @@ define rvm::define::version (
   ## Set sensible defaults for Exec resource
   Exec {
     path    => '/usr/local/rvm/bin:/bin:/sbin:/usr/bin:/usr/sbin',
+    user    => $user,
   }
 
   # Install or uninstall RVM Ruby Version

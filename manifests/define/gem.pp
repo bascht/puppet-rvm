@@ -4,11 +4,13 @@ define rvm::define::gem(
   $ensure = 'present',
   $ruby_version,
   $gemset = '',
+  $user = 'root',
   $gem_version = ''
 ) {  
   ## Set sensible defaults for Exec resource
   Exec {
     path    => '/usr/local/rvm/bin:/bin:/sbin:/usr/bin:/usr/sbin',
+    user => $user
   }
   
   # Local Parameters
